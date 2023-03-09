@@ -18,28 +18,83 @@ const patchCollectionBodySchema = joi.object({
   contentType: joi.string().required(),
 });
 
-// const saveCompanySchema = joi.object({
-//   urlLink: joi.string().uri().required(),
-// });
+const getAllEntriesSchema = joi.object({
+  id: joi.number().required(),
+});
 
-// const getCompanyQuerySchema = joi.object({
-//   sector: joi.string().required(),
-// });
+const postEntryParamSchema = joi.object({
+  id: joi.number().required(),
+});
 
-// const updateCompanyParamSchema = joi.object({
-//   companyId: joi.string().uuid().required(),
-// });
+const postEntryBodySchema = joi.object({
+  fields: joi.array().required(),
+  values: joi.array().required(),
+});
 
-// const updateCompanyBodySchema = joi.object({
-//   ceoName: joi.string().required(),
-// });
+const deleteEntryParamSchema = joi.object({
+  id: joi.number().required(),
+});
+
+const deleteEntryBodySchema = joi.object({
+  index: joi.number().required(),
+});
+
+const patchEntryParamSchema = joi.object({
+  id: joi.number().required(),
+});
+
+const patchEntryBodySchema = joi.object({
+  index: joi.number().required(),
+  fields: joi.array().required(),
+  values: joi.array().required(),
+});
+
+const getAllFieldsSchema = joi.object({
+  id: joi.number().required(),
+});
+
+const postFieldParamSchema = joi.object({
+  id: joi.number().required(),
+});
+
+const postFieldBodySchema = joi.object({
+  field: joi.string().required(),
+});
+
+const deleteFieldParamSchema = joi.object({
+  id: joi.number().required(),
+});
+
+const deleteFieldBodySchema = joi.object({
+  field: joi.string().required(),
+});
+
+const patchFieldParamSchema = joi.object({
+  id: joi.number().required(),
+});
+
+const patchFieldBodySchema = joi.object({
+  field: joi.string().required(),
+  newField: joi.string().required(),
+});
+
 module.exports = {
   getCollectionSchema,
   postCollectionSchema,
   patchCollectionParamSchema,
   patchCollectionBodySchema,
-  //   saveCompanySchema,
-  //   getCompanyQuerySchema,
-  //   updateCompanyParamSchema,
-  //   updateCompanyBodySchema,
+  getAllEntriesSchema,
+  postEntryParamSchema,
+  postEntryBodySchema,
+  deleteEntryParamSchema,
+  deleteEntryBodySchema,
+  patchEntryParamSchema,
+  patchEntryBodySchema,
+  getAllFieldsSchema,
+  postFieldParamSchema,
+  postFieldBodySchema,
+  deleteFieldParamSchema,
+  deleteFieldBodySchema,
+  patchFieldParamSchema,
+  patchFieldBodySchema,
 };
