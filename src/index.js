@@ -1,7 +1,7 @@
 require('dotenv').config();
 const cors = require('cors');
 const express = require('express');
-// const router = require('./routes/auth.routes');
+const router = require('./routes');
 
 const app = express();
 const PORT = process.env.PORT || 3020;
@@ -13,7 +13,8 @@ app.use(
 );
 app.use(express.json());
 
-// app.use('/api', router);
+app.use('/api', router);
+
 app.get('/', (req, res) => {
   res.send('Hello Backend!');
 });
