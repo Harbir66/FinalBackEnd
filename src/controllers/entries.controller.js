@@ -17,7 +17,7 @@ const addEntry = async (req, res) => {
     const entry = await entriesService.addEntry(id, fields, values);
     if (entry === 0)
       return res.status(400).json({ message: 'Entry already exists' });
-    else res.status(200).json({ data: entry });
+    else res.status(201).json({ data: entry });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
