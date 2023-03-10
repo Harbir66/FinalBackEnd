@@ -30,7 +30,7 @@ const addField = async (req, res) => {
     const fields = await fieldsService.addField(id, field);
     if (fields === 0)
       return res.status(400).json({ message: 'Field already exists' });
-    else res.status(200).json({ data: fields });
+    else res.status(201).json({ data: fields });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
